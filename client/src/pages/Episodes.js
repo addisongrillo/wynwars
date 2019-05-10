@@ -7,6 +7,11 @@ import ls from "./pics/ls.png";
 class Episodes extends Component {
   state = { episode: [""] };
 
+  componentDidMount(){
+    var elem = document.getElementById('episodesPage');
+  elem.style.color = 'red'
+  }
+
   getEpisode = e => {
     e.preventDefault();
     const episode = e.target.value;

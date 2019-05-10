@@ -11,6 +11,11 @@ import ls from './pics/ls.png';
 class Characters extends Component {
   state = { characters: [] }
 
+  componentDidMount(){
+    var elem = document.getElementById('charactersPage');
+  elem.style.color = 'red'
+  }
+
   getCharacter = (e) => {
     e.preventDefault();
     const character = e.target.elements.character.value;

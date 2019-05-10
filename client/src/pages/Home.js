@@ -2,7 +2,15 @@ import React, { Component } from "react";
 import Navbar from "../components/Navbar";
 import "./home.css";
 
+
+
 class Home extends Component {
+
+  componentDidMount(){
+    var elem = document.getElementById('homePage');
+  elem.style.color = 'red'
+  }
+
   render() {
     return (
       <div id="home" class="s2 t2">
