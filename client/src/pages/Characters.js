@@ -7,7 +7,6 @@ import './Characters.css'
 import ls from './pics/ls.png';
 
 
-
 class Characters extends Component {
   state = { characters: [] }
 
@@ -22,21 +21,17 @@ class Characters extends Component {
     if(character) {
       axios.get(`https://swapi.co/api/people/?search=${character}`)
       .then(res => {
-        console.log('res', res);
         this.setState({ characters: res.data.results })
-        console.log(this.state.characters)
       })
       .catch(err => {
         console.log(err)
       })
     }else{
       return 
-    } 
+    }
   }
 
-
-  render(){
-    console.log(this.state.characters  )
+  render(){ 
     return(
       <>
         <Navbar/>

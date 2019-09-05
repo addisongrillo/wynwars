@@ -13,7 +13,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div id="home" class="s2 t2">
+      <div id="home" className="s2 t2">
         <Navbar />
 
         <div className="fade" />
@@ -27,17 +27,17 @@ class Home extends Component {
               </div>
 
               <p id="about">
-                <span class="caps">W</span>elcome to the{" "}
-                <span class="caps">s</span>tar <span class="caps">w</span>ars{" "}
-                <span class="caps">D</span>atabase! For All of your intrests in
+                <span className="caps">W</span>elcome to the{" "}
+                <span className="caps">s</span>tar <span className="caps">w</span>ars{" "}
+                <span className="caps">D</span>atabase! For All of your intrests in
                 the universe beyond stars, we have created a{" "}
-                <span class="caps">D</span>atabase made available for anyone to
-                search their favorite <span class="caps">E</span>pisodes along
-                with <span class="caps">C</span>harecters within them. The{" "}
-                <span class="caps">G</span>alaxy is unlimited. &nbsp;&nbsp;{" "}
+                <span className="caps">D</span>atabase made available for anyone to
+                search their favorite <span className="caps">E</span>pisodes along
+                with <span className="caps">C</span>harecters within them. The{" "}
+                <span className="caps">G</span>alaxy is unlimited. &nbsp;&nbsp;{" "}
               </p>
               <p>
-                <span class="caps">M</span>ay the force be with you!
+                <span className="caps">M</span>ay the force be with you!
               </p>
             </div>
           </section>

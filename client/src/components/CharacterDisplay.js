@@ -1,9 +1,8 @@
 import React from 'react'
 
-
 const CharactersDisplay = props => (
-    <div className="characters">
-    {props.characters.map((character ,i) => (
+<div className="characters">
+    {props.characters.map((character ,i) => (      
         <div key={i} className='categories'>
         {[
             ['name', 'Name'], 
@@ -15,7 +14,7 @@ const CharactersDisplay = props => (
             ['hair_color', 'Hair Color'], 
             ['eye_color', 'Eye Color'],
         ]
-        .map(([attr, label]) => <div className="results">{label}: {character[attr]}</div>)}
+        .map(([attr, label]) => <div key={character[attr] + label} className="results">{label}: {character[attr]}</div>)}
             <br/>
         </div>
     ))}
