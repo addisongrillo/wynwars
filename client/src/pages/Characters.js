@@ -8,7 +8,7 @@ import ls from './pics/ls.png';
 
 
 class Characters extends Component {
-  state = { characters: [] }
+  state = { characters: []}
 
   componentDidMount(){
     var elem = document.getElementById('charactersPage');
@@ -21,7 +21,18 @@ class Characters extends Component {
     if(character) {
       axios.get(`https://swapi.co/api/people/?search=${character}`)
       .then(res => {
-        this.setState({ characters: res.data.results })
+        let characters = [...res.data.results]
+        for ( let k = 0; k < res.data.results.length; k++) {
+          let planetURL = res.data.results[k].homeworld.toString()
+          axios.get(planetURL).then(
+              res => {
+                characters[k].homeworld = res.data.name 
+              }
+          ).then(
+            this.setState({ characters: characters })
+          )
+        }
+        console.log(characters)
       })
       .catch(err => {
         console.log(err)

@@ -5,7 +5,8 @@ const CharactersDisplay = props => (
     {props.characters.map((character ,i) => (      
         <div key={i} className='categories'>
         {[
-            ['name', 'Name'], 
+            ['name', 'Name'],
+            ['homeworld', 'Home World'],  
             ['birth_year', 'Birth Year'],
             ['gender', 'Gender'],
             ['height', 'Height'],
