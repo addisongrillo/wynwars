@@ -21,18 +21,19 @@ class Characters extends Component {
     if(character) {
       axios.get(`https://swapi.co/api/people/?search=${character}`)
       .then(res => {
-        let characters = [...res.data.results]
-        for ( let k = 0; k < res.data.results.length; k++) {
-          let planetURL = res.data.results[k].homeworld.toString()
-          axios.get(planetURL).then(
-              res => {
-                characters[k].homeworld = res.data.name 
-              }
-          ).then(
-            this.setState({ characters: characters })
-          )
-        }
-        console.log(characters)
+        this.setState({ characters: [...res.data.results] })
+        // let characters = [...res.data.results]
+        // for ( let k = 0; k < res.data.results.length; k++) {
+        //   let planetURL = res.data.results[k].homeworld.toString()
+        //   axios.get(planetURL).then(
+        //       res => {
+        //         characters[k].homeworld = res.data.name 
+        //       }
+        //   ).then(
+        //     this.setState({ characters: characters })
+        //   )
+        // }
+        // console.log(characters)
       })
       .catch(err => {
         console.log(err)
