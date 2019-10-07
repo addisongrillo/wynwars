@@ -3,7 +3,7 @@ import "../pages/Characters.css";
 
 const CharactersUserForm = props => {
   return (
-    <form className="search" onSubmit={props.getCharacter}>
+    <form className="search fadeIn" onSubmit={props.getCharacter}>
       <h1>Enter Character</h1>
       <input
         id="charInput"

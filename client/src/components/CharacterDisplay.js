@@ -1,21 +1,19 @@
 import React from 'react'
-
+import Fetcher from './Fetcher'
 
 const CharactersDisplay = props => (
-    <div className="characters">
-    {props.characters.map((character ,i) => (
-        <div key={i} className='categories'>
-        {[
-            ['name', 'Name'], 
-            ['birth_year', 'Birth Year'],
-            ['gender', 'Gender'],
-            ['height', 'Height'],
-            ['mass', 'Mass'], 
-            ['skin_color', 'Skin Color'],
-            ['hair_color', 'Hair Color'], 
-            ['eye_color', 'Eye Color'],
-        ]
-        .map(([attr, label]) => <div className="results">{label}: {character[attr]}</div>)}
+<div className="characters">
+    {props.characters.map((character ,i) => (      
+        <div key={character.name} className='categories fadeIn'>
+            <div className="results">Name: {character.name}</div>
+            <div className="results">Birth Year: {character.birth_year}</div>
+            <div className="results">Hair Color: {character.hair_color}</div>
+            <div className="results">Mass: {character.mass}</div>
+            <Fetcher url={character.homeworld} data="homeworld" label="Home World"/>
+            <div className="results">Appeared in Films:</div>
+            {character.films.map((film) => (
+                <Fetcher url={film} data="films"/>
+            ))}
             <br/>
         </div>
     ))}

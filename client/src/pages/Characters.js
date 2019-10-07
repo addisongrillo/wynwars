@@ -7,9 +7,8 @@ import './Characters.css'
 import ls from './pics/ls.png';
 
 
-
 class Characters extends Component {
-  state = { characters: [] }
+  state = { characters: []}
 
   componentDidMount(){
     var elem = document.getElementById('charactersPage');
@@ -22,32 +21,28 @@ class Characters extends Component {
     if(character) {
       axios.get(`https://swapi.co/api/people/?search=${character}`)
       .then(res => {
-        console.log('res', res);
-        this.setState({ characters: res.data.results })
-        console.log(this.state.characters)
+        this.setState({ characters: [...res.data.results] })
       })
       .catch(err => {
         console.log(err)
       })
     }else{
       return 
-    } 
+    }
   }
 
-
-  render(){
-    console.log(this.state.characters  )
+  render(){ 
     return(
       <>
         <Navbar/>
-        <div id="lsdiv">
-        <h1>Star Wars</h1>
-        <img alt="lightsabers" id="ls" src={ls}></img>
-        <h1>Characters</h1>
-        </div>
-       
-        <CharactersUserForm getCharacter={this.getCharacter}/>
-        <CharactersDisplay characters={this.state.characters} />
+        
+          <div id="lsdiv" className="fadeIn">
+            <h1>Star Wars</h1>
+            <img alt="lightsabers" id="ls" src={ls}></img>
+            <h1>Characters</h1>
+          </div>
+          <CharactersUserForm className="fadeIn" getCharacter={this.getCharacter}/>
+          <CharactersDisplay className="fadeIn" characters={this.state.characters} />
       </>
     )
   }

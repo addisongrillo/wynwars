@@ -12,7 +12,14 @@
   src: local("Star Wars Hole"), local("Star Wars Hole"),
     url("./fonts/Starjhol.ttf") format("truetype"); /* Safari, Android, iOS */
 }
-
+.fadeIn{
+  animation: fadein 0.8s;
+}
+@keyframes fadein {
+  0% { opacity: 0; }
+  50%{ opacity: 0; }
+  99%{ opacity: 1; }
+}
 body {
   /* display: flex;
      align-items: center ;
@@ -21,7 +28,7 @@ body {
   background-color: black;
   text-transform: lowercase;
 }
-h1 {
+h1, h3 {
   color: #ffe917;
 }
 
