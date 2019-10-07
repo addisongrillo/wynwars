@@ -5,7 +5,7 @@ import axios from "axios";
 import ls from "./pics/ls.png";
 
 class Episodes extends Component {
-  state = { episode: [""] };
+  state = { episode: [""], loading:false };
 
   componentDidMount(){
     var elem = document.getElementById('episodesPage');
@@ -16,6 +16,7 @@ class Episodes extends Component {
     e.preventDefault();
     const episode = e.target.value;
     if (episode) {
+      this.setState({loading:true})
       axios
         .get(`https://swapi.co/api/films/${episode}/`)
         .then(res => {
@@ -25,26 +26,30 @@ class Episodes extends Component {
         })
         .catch(err => {
           console.log(err);
-        });
+        })
       setTimeout(function() {
-        let element = document.getElementById("epi");
-        element.classList.remove("hidden");
-      }, 500);
+        let element = document.getElementById("epi")
+        element.classList.remove("hidden")
+        ldFalse()
+      }, 500)
     } else {
       return;
     }
-  };
+    const ldFalse = () => {this.setState({loading:false})}
+  }
+  
 
   render() {
     return (
       <>
         <Navbar />
-        <div id="lsediv">
+        <div id="lsediv" className="fadeIn">
           <h1>Star Wars</h1>
           <img alt="lightsabers" id="lse" src={ls} />
           <h1>Episodes</h1>
         </div>
-        <div id="middle">
+        <div className="fadeIn" id="middle">
+          <h3>Select Episode</h3>
           <select id="selector" placeholder="choose" onChange={this.getEpisode}>
             <option value="">---</option>
             <option value="1">A New Hope</option>
@@ -55,7 +60,8 @@ class Episodes extends Component {
             <option value="6">Revenge of the Sith</option>
             <option value="7">The Force Awakens</option>
           </select>
-          <div id="epi" className="episode hidden">
+          {this.state.loading && <h3>Loading...</h3>}
+          <div key={this.state.episode.episode_id} id="epi" className="episode hidden fadeIn">
             <div id="poster">
               <img
                 src={"./posters/" + this.state.episode.episode_id + ".jpg"}

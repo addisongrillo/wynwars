@@ -7,8 +7,14 @@ import "./home.css";
 class Home extends Component {
 
   componentDidMount(){
-    var elem = document.getElementById('homePage');
-  elem.style.color = 'red'
+    let elem = document.getElementById('homePage');
+    let body = document.body
+    elem.style.color = 'red'
+    body.style.overflow = 'hidden'
+  }
+  componentWillUnmount(){
+    let body = document.body
+    body.style.overflowY = 'scroll'
   }
 
   render() {

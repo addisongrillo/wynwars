@@ -22,18 +22,6 @@ class Characters extends Component {
       axios.get(`https://swapi.co/api/people/?search=${character}`)
       .then(res => {
         this.setState({ characters: [...res.data.results] })
-        // let characters = [...res.data.results]
-        // for ( let k = 0; k < res.data.results.length; k++) {
-        //   let planetURL = res.data.results[k].homeworld.toString()
-        //   axios.get(planetURL).then(
-        //       res => {
-        //         characters[k].homeworld = res.data.name 
-        //       }
-        //   ).then(
-        //     this.setState({ characters: characters })
-        //   )
-        // }
-        // console.log(characters)
       })
       .catch(err => {
         console.log(err)
@@ -47,14 +35,14 @@ class Characters extends Component {
     return(
       <>
         <Navbar/>
-        <div id="lsdiv">
-        <h1>Star Wars</h1>
-        <img alt="lightsabers" id="ls" src={ls}></img>
-        <h1>Characters</h1>
-        </div>
-       
-        <CharactersUserForm getCharacter={this.getCharacter}/>
-        <CharactersDisplay characters={this.state.characters} />
+        
+          <div id="lsdiv" className="fadeIn">
+            <h1>Star Wars</h1>
+            <img alt="lightsabers" id="ls" src={ls}></img>
+            <h1>Characters</h1>
+          </div>
+          <CharactersUserForm className="fadeIn" getCharacter={this.getCharacter}/>
+          <CharactersDisplay className="fadeIn" characters={this.state.characters} />
       </>
     )
   }
